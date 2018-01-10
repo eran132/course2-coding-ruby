@@ -1,1 +1,10 @@
-# assignment 3 solution
+require 'fileutils'
+namespace :files do
+  desc "Rename .yaml suffix to .yml"
+  task :rename_yml do
+    files = Dir["*.yaml"]
+    files.each do |filename|
+      FileUtils.mv( filename, filename.ext("yml"))
+    end
+  end
+end
